@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    background: #0a0a0f;
+    color: #e0e0e0;
+    overflow: hidden;
+}
+
+#app {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+#canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+#ui {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    pointer-events: none;
+}
+
+#ui > * {
+    pointer-events: auto;
+}
+
+#station-info {
+    background: rgba(10, 10, 15, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 16px;
+    min-width: 250px;
+}
+
+#station-info h1 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #60a5fa;
+}
+
+#station-select {
+    width: 100%;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    color: #e0e0e0;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+#station-select:focus {
+    outline: none;
+    border-color: #60a5fa;
+}
+
+#tide-info {
+    margin-top: 12px;
+    display: flex;
+    gap: 16px;
+    font-size: 0.9rem;
+}
+
+#tide-height {
+    color: #34d399;
+    font-weight: 500;
+}
+
+#tide-trend {
+    color: #a0a0a0;
+}
+
+#controls {
+    background: rgba(10, 10, 15, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+#play-pause {
+    padding: 6px 16px;
+    background: #60a5fa;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#play-pause:hover {
+    background: #3b82f6;
+}
+
+#status {
+    font-size: 0.85rem;
+    color: #a0a0a0;
+}
+
+/* Loading overlay */
+#loading {
+    position: absolute;
+    inset: 0;
+    background: #0a0a0f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #60a5fa;
+}
+
+#loading.hidden {
+    display: none;
+}

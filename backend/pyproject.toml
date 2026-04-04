@@ -1,0 +1,42 @@
+[project]
+name = "tidl-3d"
+version = "0.1.0"
+description = "3D coastal flyover visualization with real tides and terrain"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi[standard]>=0.115",
+    "httpx>=0.28",
+    "pydantic>=2.10",
+    "certifi>=2024.0",
+    "truststore>=0.2.0",
+    "rasterio>=1.4",
+    "numpy>=2.0",
+    "pyproj>=3.7.2",
+]
+
+
+[dependency-groups]
+dev = [
+    "ty>=0.0.28",
+    "ruff>=0.8",
+    "pytest>=8.0",
+    "pytest-asyncio>=0.24",
+]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E4", "E7", "F", "I", "D101", "D102", "D103", "D2", "D3", "D4"]
+ignore = ["D203", "D212"]
+
+[tool.ruff.format]
+quote-style = "single"
+
+[tool.ty.environment]
+root = ["./app"]
+extra-paths = ["./tests"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
