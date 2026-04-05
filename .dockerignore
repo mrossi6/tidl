@@ -1,0 +1,11 @@
+**/.venv
+**/.git
+**/__pycache__
+**/.ruff_cache
+**/node_modules
+**/.pytest_cache
+backend/.venv
+backend/.ruff_cache
+backend/.uv
+*.md
+LICENSE

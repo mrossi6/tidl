@@ -6,7 +6,6 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException
-from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
 from app.models import (
@@ -221,13 +220,4 @@ async def get_stations() -> StationsResponse:
 
 # Serve frontend static files
 if FRONTEND_DIR.exists():
-    app.mount('/static', StaticFiles(directory=FRONTEND_DIR), name='static')
-
-
-@app.get('/')
-async def serve_index():
-    """Serve the frontend index.html."""
-    index_path = FRONTEND_DIR / 'index.html'
-    if index_path.exists():
-        return FileResponse(index_path)
-    return {'message': 'Frontend not found. Run from project root.'}
+    app.mount('/', StaticFiles(directory=FRONTEND_DIR, html=True), name='frontend')
